@@ -3,11 +3,12 @@ package Ruleta;
 import TDA.CircularlyDoubleLinkedList;
 
 import java.util.Random;
-import java.util.Stack;
+
+
 
 /**
  *
- * @author Usuario
+ * @author Alexis
  */
 public class RuletaNum {
     
@@ -31,36 +32,34 @@ public class RuletaNum {
         return total;
     }
     
-    public void rotarDerecha() {
+    public CircularlyDoubleLinkedList<Integer> rotarDerecha() {
         
-        Stack<Integer> s = new Stack<>();
-        s.push(ruleta.getFirst().getContent());
-        
-        for (int i = 0; i < ruleta.size(); ++i) {
-            if (i + 1 < ruleta.size() && !s.isEmpty()) {
-                int value = ruleta.get(i + 1);
-                ruleta.add(i + 1, s.pop() + 1);
-                s.push(value);
-            }
+        CircularlyDoubleLinkedList<Integer> aux = new CircularlyDoubleLinkedList<>();
+        CircularlyDoubleLinkedList<Integer> retornar = new CircularlyDoubleLinkedList<>();
+        for(int i = ruleta.size()-1; i<=ruleta.size()*2-1; i++){
+            aux.add(i+1, ruleta.get(i));
         }
-        ruleta.getFirst().setContent(s.pop() + 1);
+        for (int i = 0; i<aux.size(); i++){
+            retornar.add(i, aux.get(i)+1);
+        }
+        ruleta = retornar;
+        return ruleta;
         
     }
     
-    public void rotarIzquierda() {
+    public CircularlyDoubleLinkedList<Integer> rotarIzquierda() {
         
-        Stack<Integer> s = new Stack<>();
-        s.push(ruleta.getFirst().getContent());
-        
-        for (int i = ruleta.size() - 1; i >= 0; --i) {
-            if (i - 1 > 0 && !s.isEmpty()) {
-                int value = ruleta.get(i - 1);
-                ruleta.add(i - 1, s.pop() - 1);
-                s.push(value);
-            }
+        CircularlyDoubleLinkedList<Integer> aux = new CircularlyDoubleLinkedList<>();
+        CircularlyDoubleLinkedList<Integer> retornar = new CircularlyDoubleLinkedList<>();
+
+        for(int i = 0; i<=ruleta.size(); i++){
+            aux.add(i, ruleta.get(i+1));
         }
-        ruleta.getFirst().setContent(s.pop() - 1);
-        
+        for (int i = 0; i<aux.size(); i++){
+            retornar.add(i, aux.get(i)-1);
+        }
+        ruleta = retornar;
+        return ruleta;
     }
     
     public void eliminar(int index) {
