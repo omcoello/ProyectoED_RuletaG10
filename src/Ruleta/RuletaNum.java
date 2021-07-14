@@ -82,10 +82,5 @@ public class RuletaNum {
     public void setRuleta(CircularlyDoubleLinkedList<Integer> ruleta) {
         this.ruleta = ruleta;
     }
-    
-    public static void main(String[]arg){
-        RuletaNum rn = new RuletaNum(new CircularlyDoubleLinkedList());
-        rn.llenarRuleta(0);
-        rn.getRuleta().showList();
-    }
+        
 }

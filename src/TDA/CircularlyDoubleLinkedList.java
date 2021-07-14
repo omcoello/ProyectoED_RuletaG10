@@ -10,6 +10,13 @@ public class CircularlyDoubleLinkedList<E> implements List<E> {
 
     private int size;
 
+    public CircularlyDoubleLinkedList() {
+        first = new Node<>();
+        first.previous = first;
+        first.next = first;
+
+    }
+
     @Override
     public void clear() {
         first.setContent(null);
@@ -105,5 +112,6 @@ public class CircularlyDoubleLinkedList<E> implements List<E> {
     public Node<E> getFirst() {
         return first;
     }
+    
 
 }
