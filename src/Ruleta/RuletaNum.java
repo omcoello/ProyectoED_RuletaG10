@@ -82,5 +82,5 @@ public class RuletaNum {
     public void setRuleta(CircularlyDoubleLinkedList<Integer> ruleta) {
         this.ruleta = ruleta;
     }
-    
+        
 }
